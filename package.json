@@ -1,0 +1,23 @@
+{
+  "name": "react-typescript-boilerplate",
+  "version": "1.0.0",
+  "description": "create-react-app 없이 만드는 React Typescript Boilerplate 입니다.",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbwjd5864/react-typescript-boilerplate.git"
+  },
+  "author": "yujeong choung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dbwjd5864/react-typescript-boilerplate/issues"
+  },
+  "homepage": "https://github.com/dbwjd5864/react-typescript-boilerplate#readme"
+}
