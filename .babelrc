@@ -1,16 +1,11 @@
 {
   "presets": [
-    "@babel/typescript",
-    "@babel/react",
+    "@babel/preset-typescript",
+    "@babel/preset-react",
     [
       "@babel/preset-env",
-      {
-        "targets": { "chrome": "55" }
-      },
       {"useBuiltIns": "usage",
-        "corejs": {
-          "version": 2
-        }
+        "corejs": 3
       }
     ]
   ]

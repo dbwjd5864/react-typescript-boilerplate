@@ -11,7 +11,7 @@ module.exports = {
 	mode: mode,
 	devtool: mode === 'development' ? 'inline-source-map' : false,
 	// entry: 웹팩에게 어플리케이션이 어디서 시작하고 어디서부터 파일들을 묶을건지 시작점을 정해준다.
-	entry: path.join(__dirname, './src/index.js'),
+	entry: path.join(__dirname, './src/index.tsx'),
 	// output: 번들링 된 결과물을 어디다 둘 것인지에 대한 설정이 가능.
 	output: {
 		path: path.resolve(__dirname, 'dist/'),
@@ -24,14 +24,14 @@ module.exports = {
 		rules: [
 			// 첫번째 룰: ES6, JSX 구문 변환에 대한 것.
 			{
-				test: /\\.(js|jsx|ts|tsx)$/,
+				test: /\.(js|jsx|ts|tsx)$/,
 				exclude: /(node_modules|bower_components)/,
 				loader: 'babel-loader',
 				options: { presets: ['@babel/env'] },
 			},
 			// 두번째 룰: CSS 처리에 대한 것. css-loader가 작동하기 위해서는 style-loader가 필요.
 			{
-				test: /\\.css$/,
+				test: /\.css$/,
 				use: ['style-loader', 'css-loader'],
 			},
 			{
@@ -55,15 +55,9 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			// 번들링된 JS를 주입하고 결과물을 옮길 대상이 되는 파일을 지정
 			template: path.join(__dirname, './public/index.html'),
-			favicon: path.join(__dirname, './public/favicon.ico'),
+			// favicon: path.join(__dirname, './public/favicon.ico'),
 			// 주석제거 및 화이트 스페이스 제거
-			minify:
-				process.env.NODE_ENV === 'production'
-					? {
-							collapseWhitespace: true,
-							removeComments: true,
-					  }
-					: false,
+			minify: process.env.NODE_ENV === 'production' ? { collapseWhitespace: true, removeComments: true } : false,
 		}),
 		...(process.env.NODE_ENV === 'production' ? [new MiniCssExtractPlugin({ filename: '[name].css' })] : []),
 		new CleanWebpackPlugin(),
