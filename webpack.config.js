@@ -8,7 +8,7 @@ const mode = process.env.NODE_ENV || 'development';
 
 module.exports = {
 	// 현재 개발 모드에서 작업 중임을 알려줌.
-	mode: mode,
+	mode,
 	devtool: mode === 'development' ? 'inline-source-map' : false,
 	// entry: 웹팩에게 어플리케이션이 어디서 시작하고 어디서부터 파일들을 묶을건지 시작점을 정해준다.
 	entry: path.join(__dirname, './src/index.tsx'),
@@ -29,14 +29,33 @@ module.exports = {
 				loader: 'babel-loader',
 				options: { presets: ['@babel/env'] },
 			},
-			// 두번째 룰: CSS 처리에 대한 것. css-loader가 작동하기 위해서는 style-loader가 필요.
+			// 두번째 룰: CSS 처리에 대한 것.
 			{
-				test: /\.css$/,
-				use: ['style-loader', 'css-loader'],
+				test: /\.s[ac]ss/i,
+				use: [
+					'style-loader',
+					// css-loader 소스맵 옵션 활성화
+					{
+						loader: 'css-loader',
+						options: {
+							sourceMap: true,
+						},
+					},
+					// sass-loader 소스맵 옵션 활성화
+					{
+						loader: 'sass-loader',
+						options: {
+							sourceMap: true,
+						},
+					},
+				],
 			},
 			{
 				test: /\.(png|svg|jpg|jpeg|gif)$/i,
-				type: 'asset/resource',
+				loader: 'file-loader',
+				options: {
+					name: 'images/[name].[ext]?[hash]',
+				},
 			},
 		],
 	},
