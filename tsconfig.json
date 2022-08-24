@@ -1,14 +1,17 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,  // import를 사용하기 위해
-    "jsx": "react",  // tsx 파일을 사용하기 위해
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "sourceMap": true,
-    "target": "es5",
+    "target": "es5",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "module": "commonjs",                                /* Specify what module code is generated. */
+    "jsx": "react",
+
+    "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "forceConsistentCasingInFileNames": true,            /* Ensure that casing is correct in imports. */
+
+    /* Type Checking */
+    "strict": true,                                      /* Enable all strict type-checking options. */
+    "noImplicitAny": true,                               /* Enable error reporting for expressions and declarations with an implied 'any' type. */
+    "strictNullChecks": true,                            /* When type checking, take into account 'null' and 'undefined'. */
+    "skipLibCheck": true,
   },
   "exclude": [
     "node_modules"
