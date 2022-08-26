@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     body {
         font-size: 14px;
         background-color: white;
-        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+        font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segue UI",Roboto,"Helvetica Neu",Arial,sans-serif;
     }
     a {
         text-decoration: none;
